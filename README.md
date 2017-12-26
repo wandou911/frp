@@ -175,7 +175,7 @@ custom_domains = bb.yourdomain.com#可以配置多个子域名
 `出现问题：the page you visit not found.
 Sorry, the page you are looking for is currently unavailable.
 Please try again later.
-The server is powered by frp.[参考链接：https://github.com/fatedier/frp/issues/506](https://github.com/fatedier/frp/issues/506)`
+The server is powered by frp.`[参考链接：https://github.com/fatedier/frp/issues/506](https://github.com/fatedier/frp/issues/506)`
 
 启动 frpc：
 ```
