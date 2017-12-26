@@ -201,13 +201,14 @@ Listen 80 改为Listen 8080
 
 保存退出
 
-启动Apache
-```
-/etc/init.d/apache2 start
-```
 关闭Apache
 ```
 /etc/init.d/apache2 stop
+```
+
+启动Apache
+```
+/etc/init.d/apache2 start
 ```
 
 apache2 网页存放路径 /var/www/html
