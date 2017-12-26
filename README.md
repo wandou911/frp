@@ -3,8 +3,9 @@
 服务端配置
 
 1 登陆vps主机
-
-`ssh root@12.12.12.12`
+```
+ssh root@12.12.12.12
+```
  
 
 2 下载一键安装包
@@ -31,7 +32,7 @@ chmod 700 ./install-frps.sh
 
 ![frps Dashboard](https://images2017.cnblogs.com/blog/1044995/201712/1044995-20171222165529850-183084607.png)
 
-
+```
 frps 常用命令：启动（frps start），停止（frps stop）
 
 frps status manage : {start|stop|restart|status|config|version}
@@ -43,7 +44,7 @@ Example:
    stop: frps stop
 
 restart: frps restart
-
+```
 6 修改frps 配置文件
 
 方法一：
@@ -54,7 +55,6 @@ frps config
 ```
 cd /usr/local/frps/
 vi frps.ini
-
 ```
 7 frps.ini 配置文件
 
@@ -124,9 +124,9 @@ remote_port = 6000
 ```
 
 5 启动frpc 客户端
-
+```
 ./frpc -c frpc.ini
-
+```
 6 如图，启动成功
 
 ![frpc 启动成功](https://images2017.cnblogs.com/blog/1044995/201712/1044995-20171222170044318-162684052.png)
@@ -146,12 +146,12 @@ frps.ini
 [common]
 bind_port = 5443
 vhost_http_port = 80#http 端口号 也可以是其他任何端口号
-
 ```
 
 启动frps：
-
+```
 ./frps -c ./frps.ini
+```
 
 修改 frpc.ini 文件，假设 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口, 绑定自定义域名 cc.yourdomain.com:
 
@@ -175,24 +175,21 @@ custom_domains = bb.yourdomain.com#可以配置多个子域名
 `出现问题：the page you visit not found.
 Sorry, the page you are looking for is currently unavailable.
 Please try again later.
-The server is powered by frp.
-
-参考链接：https://github.com/fatedier/frp/issues/506`
+The server is powered by frp.参考链接：https://github.com/fatedier/frp/issues/506`
 
 启动 frpc：
 ```
 ./frpc -c ./frpc.ini
- 
 ```
+
 将 yourdomain.com 的域名 A 记录解析到 IP x.x.x.x，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名
 
- 
-
 通过浏览器访问 http://cc.yourdomain.com 即可访问到处于内网机器上的 web 服务。
+
 如果 frps.ini文件 vhost_http_port = 端口号#http 不是80端口
+
 请通过：http://cc.yourdomain.com:端口号 即可访问到处于内网机器上的 web 服务
  
-
 
 [参考链接1：内网穿透 frp](http://www.cnblogs.com/mnstar/p/8085113.html)
 
