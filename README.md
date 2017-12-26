@@ -8,16 +8,21 @@
  
 
 2 下载一键安装包
-
-`wget --no-check-certificate https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/install-frps.sh -O ./install-frps.sh`
+```
+wget --no-check-certificate https://raw.githubusercontent.com/clangcn/onekey-install-shell/master/frps/install-frps.sh -O ./install-frps.sh
+```
 3 chmod 700
 
-`chmod 700 ./install-frps.sh`
+```
+chmod 700 ./install-frps.sh
+```
  
 
 4 安装
+```
+./install-frps.sh install
+```
 
-`./install-frps.sh install`
 安装成功截图
 
 ![frps安装截图](https://images2017.cnblogs.com/blog/1044995/201712/1044995-20171226155743729-1396171587.png)
@@ -42,10 +47,15 @@ restart: frps restart
 6 修改frps 配置文件
 
 方法一：
-`frps config`
+```
+frps config
+```
 方法二：
-`cd /usr/local/frps/`
-`vi frps.ini`
+```
+cd /usr/local/frps/
+vi frps.ini
+
+```
 7 frps.ini 配置文件
 
 ```
@@ -87,11 +97,13 @@ wget https://github.com/fatedier/frp/releases/download/v0.14.1/frp_0.14.1_linux_
 tar zxvf frp_0.14.1_linux_arm.tar.gz #解压
 ```
 2 进入frp目录
-
-`cd frp_0.14.1_linux_arm`
+```
+cd frp_0.14.1_linux_arm
+```
 3 编辑 frpc.ini
-
-`vi frpc.ini`
+```
+vi frpc.ini
+```
 frpc.ini
 
 ```
@@ -107,7 +119,9 @@ remote_port = 6000
 ```
 
 4 保存
-`:wq`
+```
+:wq
+```
 
 5 启动frpc 客户端
 
@@ -118,12 +132,14 @@ remote_port = 6000
 ![frpc 启动成功](https://images2017.cnblogs.com/blog/1044995/201712/1044995-20171222170044318-162684052.png)
 
 7 使用ssh 远程连接，这个地方要注意：[从外网访问内网，你应该是访问外网的ip，frp帮你打洞到内网](https://github.com/fatedier/frp/issues/97)
-
-`ssh -oPort=6000 wandou@12.12.12.12#wandou是内网用户名，12.12.12.12是公网ip`
+```
+ssh -oPort=6000 wandou@12.12.12.12#wandou是内网用户名，12.12.12.12是公网ip
+```
 
 ![ssh连接](https://images2017.cnblogs.com/blog/1044995/201712/1044995-20171222170740162-1712874836.png)
 
 8 配置路由转发
+
 frps.ini
 ```
 # frps.ini
@@ -136,6 +152,7 @@ vhost_http_port = 80#http 端口号 也可以是其他任何端口号
 启动frps：
 
 ./frps -c ./frps.ini
+
 修改 frpc.ini 文件，假设 frps 所在的服务器的 IP 为 x.x.x.x，local_port 为本地机器上 web 服务对应的端口, 绑定自定义域名 cc.yourdomain.com:
 
 ```
@@ -155,18 +172,18 @@ local_port = 8082#端口号对应本机web服务器端口
 custom_domains = bb.yourdomain.com#可以配置多个子域名
 ```
 
-出现问题：the page you visit not found.
+`出现问题：the page you visit not found.
 Sorry, the page you are looking for is currently unavailable.
 Please try again later.
 The server is powered by frp.
 
-参考链接：https://github.com/fatedier/frp/issues/506
+参考链接：https://github.com/fatedier/frp/issues/506`
 
 启动 frpc：
-
+```
 ./frpc -c ./frpc.ini
  
-
+```
 将 yourdomain.com 的域名 A 记录解析到 IP x.x.x.x，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名
 
  
@@ -178,6 +195,7 @@ The server is powered by frp.
 
 
 [参考链接1：内网穿透 frp](http://www.cnblogs.com/mnstar/p/8085113.html)
+
 [参考链接2：frp原作 GitHub](https://github.com/fatedier/frp/)
 
 
