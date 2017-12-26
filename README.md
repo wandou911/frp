@@ -184,9 +184,39 @@ The server is powered by frp.`[解决方法：https://github.com/fatedier/frp/is
 
 将 yourdomain.com 的域名 A 记录解析到 IP x.x.x.x，如果服务器已经有对应的域名，也可以将 CNAME 记录解析到服务器原先的域名
 
+9 安装Apache
+```
+sudo apt-get install apache2
+```
+
+修改Apache2端口号为：8080
+```
+cd /etc/apache2
+sudo vi ports.conf
+```
+Listen 80 改为Listen 8080
+```
+:wq
+```
+
+保存退出
+
+启动Apache
+```
+/etc/init.d/apache2 start
+```
+关闭Apache
+```
+/etc/init.d/apache2 stop
+```
+
+apache2 网页存放路径 /var/www/html
+
+10 访问内网web服务 
+
 通过浏览器访问 http://cc.yourdomain.com 即可访问到处于内网机器上的 web 服务。
 
-如果 frps.ini文件 vhost_http_port = 端口号#http 不是80端口
+如果 frps.ini文件 vhost_http_port = 端口号#http 不是80端口，在域名后面加上端口号
 
 请通过：http://cc.yourdomain.com:端口号 即可访问到处于内网机器上的 web 服务
  
