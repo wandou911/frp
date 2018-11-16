@@ -1,6 +1,11 @@
 # frp
 
+购买vps主机 [搬瓦工](https://bandwagonhost.com/aff.php?aff=19935) 或者 [vultr](https://www.vultr.com/?ref=7584384) 
+
+<a href="https://www.vultr.com/?ref=7584384"><img src="https://www.vultr.com/media/banner_1.png" width="728" height="90"></a>
+
 服务端配置
+
 
 1 登陆vps主机
 ```
