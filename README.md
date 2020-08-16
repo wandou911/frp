@@ -231,4 +231,5 @@ apache2 网页存放路径 /var/www/html
 
 [参考链接2：frp原作 GitHub](https://github.com/fatedier/frp/)
 
+[Ubuntu安装Frp](https://blog.csdn.net/weixin_44418825/article/details/104574972)
 
